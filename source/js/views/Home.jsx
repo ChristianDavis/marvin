@@ -25,8 +25,8 @@ export default class Home extends Component {
 
   handleSave = () => {
     /* Implement Save function */
-    let list = this.state.saved;
-    this.setState({ saved: list.concat([this.state.counter]) });
+    const list = this.state.saved;
+    this.setState({ saved: [...this.state.saved, this.state.counter] });
   }
 
   render() {
