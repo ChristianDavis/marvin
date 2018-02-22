@@ -8,19 +8,25 @@ export default class Home extends Component {
     super(props);
     this.state = {
       counter: 0,
+      saved: []
     };
   }
 
   handleIncrement = () => {
     /* Implement Increment function */
+    this.setState({ counter: this.state.counter+1 });
+    
   }
 
   handleDecrement = () => {
     /* Implement Decrement function */
+    this.setState({ counter: this.state.counter-1 });
   }
 
   handleSave = () => {
     /* Implement Save function */
+    const list = this.state.saved;
+    this.setState({ saved: list.push(this.state.counter) })
   }
 
   render() {
@@ -29,11 +35,16 @@ export default class Home extends Component {
       <div className='Home'>
         <div className='Example'>
           <p>Counter: { counter }</p>
+          <button onClick={ this.handleIncrement } >Increase</button>
+          <button onClick={ this.handleDecrement } >Decrease</button>
+          <button onClick={ this.handleSave } >Save Current Number</button>
           {/* Buttons go here */}
         </div>
         <hr />
         <p style={ { textDecoration: 'underline' } }>Saved Numbers</p>
-        {/* Saved numbers go here */}
+        <ul>
+          { this.state.saved.map((number) => { return (<li>{ number }</li>) }) }
+        </ul>
       </div>
     );
   }
