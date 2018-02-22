@@ -1,45 +1,39 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { increment, decrement } from 'actions/app';
 
-@connect(state => ({
-  counter: state.app.get('counter'),
-}))
+/* TODO: Implement the button component */
+import Button from 'components/global/Button';
+
 export default class Home extends Component {
-  static propTypes = {
-    counter: PropTypes.number,
-    // from react-redux connect
-    dispatch: PropTypes.func,
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0,
+    };
   }
 
   handleIncrement = () => {
-    const { dispatch } = this.props;
-    dispatch(increment());
+    /* Implement Increment function */
   }
 
   handleDecrement = () => {
-    const { dispatch } = this.props;
-    dispatch(decrement());
+    /* Implement Decrement function */
+  }
+
+  handleSave = () => {
+    /* Implement Save function */
   }
 
   render() {
-    const {
-      counter,
-    } = this.props;
-
+    const { counter } = this.state;
     return (
       <div className='Home'>
         <div className='Example'>
           <p>Counter: { counter }</p>
-          <button onClick={ this.handleIncrement }>
-            Increase
-          </button>
-          <button onClick={ this.handleDecrement }>
-            Decrease
-          </button>
+          {/* Buttons go here */}
         </div>
-
+        <hr />
+        <p style={ { textDecoration: 'underline' } }>Saved Numbers</p>
+        {/* Saved numbers go here */}
       </div>
     );
   }
