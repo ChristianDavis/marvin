@@ -25,12 +25,13 @@ export default class Home extends Component {
 
   handleSave = () => {
     /* Implement Save function */
-    const list = this.state.saved;
-    this.setState({ saved: list.push(this.state.counter) })
+    let list = this.state.saved;
+    this.setState({ saved: list.concat([this.state.counter]) });
   }
 
   render() {
-    const { counter } = this.state;
+    const { counter, saved } = this.state;
+    console.log(this.state);
     return (
       <div className='Home'>
         <div className='Example'>
@@ -43,7 +44,7 @@ export default class Home extends Component {
         <hr />
         <p style={ { textDecoration: 'underline' } }>Saved Numbers</p>
         <ul>
-          { this.state.saved.map((number) => { return (<li>{ number }</li>) }) }
+          { saved.map((number) => { return (<li>{ number }</li>) }) }
         </ul>
       </div>
     );
