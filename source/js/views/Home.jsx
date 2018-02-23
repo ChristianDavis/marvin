@@ -44,7 +44,7 @@ export default class Home extends Component {
         <hr />
         <p style={ { textDecoration: 'underline' } }>Saved Numbers</p>
         <ul>
-          { saved.map((number) => { return (<li>{ number }</li>) }) }
+          { saved.map((number, idx) => { return (<li key={ idx }>{ number }</li>) }) }
         </ul>
       </div>
     );
