@@ -25,8 +25,7 @@ export default class Home extends Component {
   handleSave = () => {
     /* Implement Save function */
     const list = this.state.saved;
-    list.push(this.state.counter);
-    this.setState({ saved: list });
+    this.setState({ saved: [...this.state.saved, this.state.counter] });
   }
 
   render() {
